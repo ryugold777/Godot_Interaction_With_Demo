@@ -79,7 +79,6 @@ func interacao():
 		$sound.stop()
 		yield(get_tree().create_timer(0.3), "timeout")
 		primeira_pagina = true
-		proxima_pagina = true
 		finalizar_texto = false
 
 func _physics_process(_delta):
