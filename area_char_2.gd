@@ -56,18 +56,20 @@ func interacao():
 
 # Próxima página. Para mais páginas acrescentar no topo do script
 	if Input.is_action_just_released("ui_accept") && proxima_pagina == true:
-		if (pagina < total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length()):
+		if (pagina < total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length()) && interaction_name_kinematicbody2D.is_colliding() && (rabbit.animation == "padrao"):
 			texto_mensagem.visible_characters = -1
 			pagina = pagina + 1
 			$sound.stream_paused = false
-			while (texto_mensagem.visible_characters) < (texto_mensagem.text.length()):
+			proxima_pagina = false
+		if (proxima_pagina == false) && (Input.is_action_just_released("ui_accept")):
+			while (texto_mensagem.visible_characters) <= (texto_mensagem.text.length()):
 				texto_mensagem.visible_characters += 1
 				$sound.play()
 				yield(get_tree().create_timer(0.1), "timeout")
 				show_message()
 		if (pagina > 1):
-				show_message()
-		if (pagina >= total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length()):
+			show_message()
+		if (pagina >= total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length())  && interaction_name_kinematicbody2D.is_colliding():
 			finalizar_texto = true
 
 #Fim da mensagem
