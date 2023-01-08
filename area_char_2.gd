@@ -5,7 +5,7 @@ extends Area2D
 # um variável para ele parar quando estiver interagindo.                      #
 #                                                                             #
 # Autor: Gold Angel                                                           #
-# Data: Dia 08 de Janeiro de 2023, 12:37                                      #
+# Data: Dia 08 de Janeiro de 2023, 14:52                                      #
 # Agradecimentos/Thanks to KoBeWi                                             #
 ###############################################################################
 
