@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://char_cat.png" type="Texture" id=1]
+[ext_resource path="res://rabbit.gd" type="Script" id=2]
+[ext_resource path="res://char_2.png" type="Texture" id=3]
+[ext_resource path="res://area_char_2.gd" type="Script" id=4]
+[ext_resource path="res://message_box.png" type="Texture" id=5]
+[ext_resource path="res://sound.wav" type="AudioStream" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31, 26.5 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "padrao",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 35, 33 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 36.5, 10 )
+
+[node name="Interacao" type="Node2D"]
+
+[node name="rabbit" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="colisao_rabbit" type="CollisionShape2D" parent="rabbit"]
+position = Vector2( 247, 139.5 )
+shape = SubResource( 1 )
+
+[node name="char_rabbit" type="AnimatedSprite" parent="rabbit"]
+position = Vector2( 246, 138 )
+frames = SubResource( 3 )
+animation = "padrao"
+
+[node name="colidir" type="RayCast2D" parent="rabbit"]
+position = Vector2( 234, 144 )
+rotation = 4.71134
+enabled = true
+
+[node name="char_2" type="KinematicBody2D" parent="."]
+
+[node name="char_2" type="Sprite" parent="char_2"]
+position = Vector2( 362, 138 )
+texture = ExtResource( 3 )
+
+[node name="colisao_char_2" type="CollisionShape2D" parent="char_2"]
+position = Vector2( 361, 138 )
+shape = SubResource( 4 )
+
+[node name="area_char_2" type="Area2D" parent="."]
+position = Vector2( -3, 0 )
+script = ExtResource( 4 )
+
+[node name="message_box" type="Sprite" parent="area_char_2"]
+visible = false
+position = Vector2( 332, 235 )
+texture = ExtResource( 5 )
+
+[node name="message" type="RichTextLabel" parent="area_char_2/message_box"]
+margin_left = -245.0
+margin_top = -26.0
+margin_right = 248.0
+margin_bottom = 27.0
+
+[node name="collision_message" type="CollisionShape2D" parent="area_char_2"]
+position = Vector2( 349, 162 )
+shape = SubResource( 5 )
+
+[node name="sound" type="AudioStreamPlayer" parent="area_char_2"]
+stream = ExtResource( 6 )
