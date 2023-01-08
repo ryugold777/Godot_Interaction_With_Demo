@@ -43,7 +43,6 @@ func interacao():
 		exibir_caixa_mensagem.visible = true
 		pagina = 0
 		$sound.stream_paused = false
-		texto_mensagem.visible_characters = -1
 		while (texto_mensagem.visible_characters) <= (texto_mensagem.text.length()):
 			texto_mensagem.visible_characters += 1
 			$sound.play()
