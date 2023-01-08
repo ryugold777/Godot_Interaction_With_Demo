@@ -5,7 +5,7 @@ extends Area2D
 # um variável para ele parar quando estiver interagindo.                      #
 #                                                                             #
 # Autor: Gold Angel                                                           #
-# Data: Dia 08 de Janeiro de 2023, 15:03                                      #
+# Data: Dia 08 de Janeiro de 2023, 15:25                                      #
 # Agradecimentos/Thanks to KoBeWi                                             #
 ###############################################################################
 
@@ -77,7 +77,7 @@ func interacao():
 		texto_mensagem.visible_characters = -1
 		hide_message()
 		$sound.stop()
-		yield(get_tree().create_timer(0.2), "timeout")
+		yield(get_tree().create_timer(0.3), "timeout")
 		primeira_pagina = true
 		proxima_pagina = true
 		finalizar_texto = false
