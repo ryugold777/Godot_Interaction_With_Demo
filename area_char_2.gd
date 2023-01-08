@@ -40,21 +40,19 @@ func hide_message():
 
 # Função interagir com objetos e NPC's
 func interacao():
-	if Input.is_action_just_pressed("ui_accept") && (primeira_pagina == true) && interaction_name_kinematicbody2D.is_colliding() && (rabbit.animation == "padrao") && (nao_exibir_texto == true):
+	if Input.is_action_just_pressed("ui_accept") && (primeira_pagina == true) && interaction_name_kinematicbody2D.is_colliding() && (rabbit.animation == "padrao"):
 			exibir_caixa_mensagem.visible = true
 			pagina = 0
 			$sound.stream_paused = false
-			nao_exibir_texto = false
-			if nao_exibir_texto == false && Input.is_action_just_pressed("ui_accept"):
-				while (texto_mensagem.visible_characters) <= (texto_mensagem.text.length()):
-					texto_mensagem.visible_characters += 1
-					$sound.play()
-					yield(get_tree().create_timer(0.1), "timeout")
-					show_message()
-				yield(get_tree().create_timer(0.2), "timeout")
+			while (texto_mensagem.visible_characters) <= (texto_mensagem.text.length()):
+				texto_mensagem.visible_characters += 1
+				$sound.play()
+				yield(get_tree().create_timer(0.1), "timeout")
+				show_message()
+			yield(get_tree().create_timer(0.2), "timeout")
 			
-				proxima_pagina = true
-				primeira_pagina = false
+			proxima_pagina = true
+			primeira_pagina = false
 
 # Próxima página. Para mais páginas acrescentar no topo do script
 	if Input.is_action_just_released("ui_accept") && proxima_pagina == true:
