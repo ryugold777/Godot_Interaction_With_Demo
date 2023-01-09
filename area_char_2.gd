@@ -5,19 +5,19 @@ extends Area2D
 # um variável para ele parar quando estiver interagindo.                      #
 #                                                                             #
 # Autor: Gold Angel                                                           #
-# Data: Dia 08 de Janeiro de 2023, 15:25                                      #
+# Data: Dias 08/09 de Janeiro de 2023, 14:41                                  #
 # Agradecimentos/Thanks to KoBeWi                                             #
 ###############################################################################
 
 # Declaração das variáveis
 var pagina = 0
-var total_paginas = 1
+var total_paginas = 2
 var proxima_pagina
 var colisao_player = false
 var primeira_pagina = true
 var finalizar_texto
 				 #page 0              #page 1
-var mensagem = ["Hello! How are you?", "Good adfasdasdasdas"]
+var mensagem = ["Hello! How are you?", "Good adfasdasdasdas", "That's good!"]
 onready var texto_mensagem = get_parent().get_node("area_char_2/message_box/message")
 onready var exibir_caixa_mensagem = get_parent().get_node("area_char_2/message_box")
 onready var rabbit = get_parent().get_node("rabbit/char_rabbit")
@@ -48,7 +48,7 @@ func interacao():
 			$sound.play()
 			yield(get_tree().create_timer(0.1), "timeout")
 			show_message()
-		yield(get_tree().create_timer(0.2), "timeout")
+		#yield(get_tree().create_timer(0.2), "timeout")
 
 		proxima_pagina = true
 		primeira_pagina = false
@@ -59,22 +59,21 @@ func interacao():
 			texto_mensagem.visible_characters = -1
 			pagina = pagina + 1
 			$sound.stream_paused = false
-			proxima_pagina = false
-		if (proxima_pagina == false) && (Input.is_action_just_released("ui_accept")):
-			while (texto_mensagem.visible_characters) <= (texto_mensagem.text.length()):
-				texto_mensagem.visible_characters += 1
-				$sound.play()
-				yield(get_tree().create_timer(0.1), "timeout")
-				show_message()
+		while (texto_mensagem.visible_characters) <= (texto_mensagem.text.length()):
+			texto_mensagem.visible_characters += 1
+			$sound.play()
+			yield(get_tree().create_timer(0.2), "timeout")
+			show_message()
 		if (pagina > 1):
+			yield(get_tree().create_timer(0.3), "timeout")
 			show_message()
 		if (pagina >= total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length()):
+			proxima_pagina = false
 			finalizar_texto = true
 
 #Fim da mensagem
-	if (Input.is_action_just_released("ui_accept")) && (finalizar_texto == true):
+	if (finalizar_texto == true):
 		$sound.stream_paused = true
-		texto_mensagem.visible_characters = -1
 		hide_message()
 		$sound.stop()
 		yield(get_tree().create_timer(0.3), "timeout")
@@ -83,3 +82,4 @@ func interacao():
 
 func _physics_process(_delta):
 	interacao()
+
