@@ -5,7 +5,7 @@ extends Area2D
 # um variável para ele parar quando estiver interagindo.                      #
 #                                                                             #
 # Autor: Gold Angel                                                           #
-# Data: Dias 08/09 de Janeiro de 2023, 14:41                                  #
+# Data: Dias 08/09/20 de Janeiro de 2023, 02:21                               #
 # Agradecimentos/Thanks to KoBeWi                                             #
 ###############################################################################
 
@@ -16,7 +16,7 @@ var proxima_pagina
 var colisao_player = false
 var primeira_pagina = true
 var finalizar_texto
-	          #page 0                 #page 1                #page 2
+				 #page 0              #page 1
 var mensagem = ["Hello! How are you?", "Good adfasdasdasdas", "That's good!"]
 onready var texto_mensagem = get_parent().get_node("area_char_2/message_box/message")
 onready var exibir_caixa_mensagem = get_parent().get_node("area_char_2/message_box")
@@ -68,11 +68,11 @@ func interacao():
 			yield(get_tree().create_timer(0.3), "timeout")
 			show_message()
 		if (pagina >= total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length()):
-			proxima_pagina = false
-			finalizar_texto = true
+				proxima_pagina = false
+				finalizar_texto = true
 
 #Fim da mensagem
-	if (finalizar_texto == true):
+	if (finalizar_texto == true)  && (Input.is_action_just_pressed("ui_accept")):
 		$sound.stream_paused = true
 		hide_message()
 		$sound.stop()
@@ -82,4 +82,3 @@ func interacao():
 
 func _physics_process(_delta):
 	interacao()
-
