@@ -5,7 +5,7 @@ extends Area2D
 # um variável para ele parar quando estiver interagindo.                      #
 #                                                                             #
 # Autor: Gold Angel                                                           #
-# Data: Dias 08/09/20 de Janeiro de 2023, 02:51                               #
+# Data: Dias 08/09/20 de Janeiro de 2023, 02:55                               #
 # Agradecimentos/Thanks to KoBeWi                                             #
 ###############################################################################
 
@@ -67,9 +67,9 @@ func interacao():
 		if (pagina > 1):
 			yield(get_tree().create_timer(0.1), "timeout")
 			show_message()
-		if (pagina >= total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length()):
-			finalizar_texto = true
-			proxima_pagina = false
+			if (pagina >= total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length()):
+				finalizar_texto = true
+				proxima_pagina = false
 
 #Fim da mensagem
 	if (finalizar_texto == true) && (Input.is_action_just_pressed("ui_accept")):
