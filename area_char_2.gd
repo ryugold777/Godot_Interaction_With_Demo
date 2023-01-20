@@ -5,7 +5,7 @@ extends Area2D
 # um variável para ele parar quando estiver interagindo.                      #
 #                                                                             #
 # Autor: Gold Angel                                                           #
-# Data: Dias 08/09/20 de Janeiro de 2023, 02:26                               #
+# Data: Dias 08/09/20 de Janeiro de 2023, 02:51                               #
 # Agradecimentos/Thanks to KoBeWi                                             #
 ###############################################################################
 
@@ -16,7 +16,7 @@ var proxima_pagina
 var colisao_player = false
 var primeira_pagina = true
 var finalizar_texto
-		      #page 0              #page 1              #page 2
+				 #page 0                  #page 1                  #page 2
 var mensagem = ["Hello! How are you?", "Good adfasdasdasdas", "That's good!"]
 onready var texto_mensagem = get_parent().get_node("area_char_2/message_box/message")
 onready var exibir_caixa_mensagem = get_parent().get_node("area_char_2/message_box")
@@ -61,20 +61,20 @@ func interacao():
 			$sound.stream_paused = false
 		while (texto_mensagem.visible_characters) <= (texto_mensagem.text.length()):
 			texto_mensagem.visible_characters += 1
-			$sound.play()
-			yield(get_tree().create_timer(0.2), "timeout")
+			#$sound.play()
+			yield(get_tree().create_timer(0.1), "timeout")
 			show_message()
 		if (pagina > 1):
-			yield(get_tree().create_timer(0.3), "timeout")
+			yield(get_tree().create_timer(0.1), "timeout")
 			show_message()
 		if (pagina >= total_paginas) && (texto_mensagem.visible_characters) >= (texto_mensagem.text.length()):
-				proxima_pagina = false
-				finalizar_texto = true
+			finalizar_texto = true
+			proxima_pagina = false
 
 #Fim da mensagem
-	if (finalizar_texto == true)  && (Input.is_action_just_pressed("ui_accept")):
-		$sound.stream_paused = true
+	if (finalizar_texto == true) && (Input.is_action_just_pressed("ui_accept")):
 		hide_message()
+		$sound.stream_paused = true
 		$sound.stop()
 		finalizar_texto = false
 		primeira_pagina = true
