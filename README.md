@@ -8,7 +8,7 @@ Bug corrigido!
 
 English:
 
-Interaction with NPC's and objects with sound
+Interaction with NPC's and objects with sound.
 
 [Interaction.zip](https://github.com/ryugold777/Interaction_With_Demo/files/10378521/Interaction.zip)
 
