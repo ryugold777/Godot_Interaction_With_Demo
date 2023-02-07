@@ -7,7 +7,11 @@ nota: tinha um pequeno bug mas o godot não está ajudando muito. Ele está fech
 Bug corrigido!
 
 English:
+<<<<<<< HEAD
 Interaction with NPC's and objects with sound.
+=======
+Interaction with NPC's and objects with sound
+>>>>>>> da79eaefef1fe6570dab21f006d58f27500341b2
 
 [Interaction.zip](https://github.com/ryugold777/Interaction_With_Demo/files/10378521/Interaction.zip)
 
