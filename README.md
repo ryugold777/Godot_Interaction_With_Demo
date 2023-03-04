@@ -6,7 +6,11 @@ nota: tinha um pequeno bug mas o godot não está ajudando muito. Ele está fech
 
 Bug corrigido!
 
+OBS: Não funciona no godot 4.0
+
 English:
+
+P.S: Does not work in Godot 4.0
 
 Interaction with NPC's and objects with sound.
 
