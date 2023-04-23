@@ -35,7 +35,7 @@ func show_message():
 func hide_message():
 	exibir_caixa_mensagem.visible = false
 	texto_mensagem.hide()
-	texto_mensagem.visible_characters = -1
+	texto_mensagem.visible_characters = 0
 
 # Função interagir com objetos e NPC's
 func interacao():
