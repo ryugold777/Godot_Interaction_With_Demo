@@ -10,7 +10,7 @@ OBS: Não funciona no godot 4.0
 
 English:
 
-P.S: Does not work in Godot 4.0
+P.S: Does not work in Godot 4
 
 Interaction with NPC's and objects with sound.
 
