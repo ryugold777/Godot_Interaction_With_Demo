@@ -6,7 +6,7 @@ nota: tinha um pequeno bug mas o godot não está ajudando muito. Ele está fech
 
 Bug corrigido!
 
-OBS: Não funciona no godot 4.0
+OBS: Não funciona no godot 4
 
 English:
 
