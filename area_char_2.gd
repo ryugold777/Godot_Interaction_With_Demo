@@ -16,7 +16,7 @@ var proxima_pagina
 var colisao_player = false
 var primeira_pagina = true
 var finalizar_texto
-		    #page 0                  #page 1              #page 2
+#		    #page 0                  #page 1              #page 2
 var mensagem = ["Hello! How are you?", "Good adfasdasdasdas", "That's good!"]
 onready var texto_mensagem = get_parent().get_node("area_char_2/message_box/message")
 onready var exibir_caixa_mensagem = get_parent().get_node("area_char_2/message_box")
